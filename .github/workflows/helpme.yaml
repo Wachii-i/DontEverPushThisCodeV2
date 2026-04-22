@@ -68,7 +68,7 @@ jobs:
               uses: github/codeql-action/upload-sarif@v3
               if: always()
               with:
-              sarif_file: results.sarif
+                sarif_file: results.sarif
 
 
 
@@ -148,7 +148,7 @@ jobs:
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
-              node-version: 20
+                node-version: 20
 
             - name: Install dependencies
               run: npm ci   
@@ -230,17 +230,16 @@ jobs:
               uses: github/codeql-action/upload-sarif@v3
               if: always()
               with:
-              sarif_file: trivy-results.sarif
-              category: trivy
+                  sarif_file: trivy-results.sarif
+                  category: trivy
             # TODO#21: upload trivy-results.sarif as workflow artifact
             - name: Upload Trivy SARIF as artifact
               if: always()
               uses: actions/upload-artifact@v4
               with:
-              name: trivy-report
-              path: trivy-results.sarif
+                  name: trivy-report
+                  path: trivy-results.sarif
 
     # GATE#4: IaC scanning (Since there is no infrastructure cod here and it is out of scope for this class so we could skip it HELL YEAH!)
     # GATE#5: DAST (We have OWASP ZAP workshop here so we can skip this one too! YOHOOO!)
 
-    
